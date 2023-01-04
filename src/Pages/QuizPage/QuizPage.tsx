@@ -1,36 +1,20 @@
 import React from "react";
 import c from './QuizPage.module.scss'
 import {useGetAllQuestionsQuery} from "../../store/api/questions";
+import QuizCategoryCard from "../../components/QuizCategoryCard/QuizCategoryCard";
 
 
 const QuizPage=()=>{
-
+    const categories=['Linux','DevOps','Networking','Programming ','Cloud','Docker','Kubernetes']
     const {data, error} = useGetAllQuestionsQuery('2')
     console.log(data)
 
-    return (<>
-            <h1>qUiz page</h1>
-        <div className={c.grid}>
-            <div className={c.card}>
-                Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada
-            </div>
-            <div className={c.card}>
-                Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada
-            </div>
-            <div className={c.card}>
-                Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada
-            </div>
-            <div className={c.card}>
-                Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada
-            </div>
-            <div className={c.card}>
-                Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada
-            </div>
-            <div className={c.card}>
-                Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada  Loremsdada
-            </div>
+    return (<div className={c.QuizPage}>
+            <h1>Welcome to quiz ! Choose category to solve ! </h1>
+        <div className={c.QuizPage__grid}>
+            {categories.map(category=><QuizCategoryCard category={category}/>)}
         </div>
-    </>
+    </div>
 
     )
 }

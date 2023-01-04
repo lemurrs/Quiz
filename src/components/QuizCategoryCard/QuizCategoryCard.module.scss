@@ -1,0 +1,13 @@
+.CategoryCard {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 3rem;
+  transition: all 0.2s;
+  &:hover{
+    transform: scale(1.1);
+    background: #ffffff;
+  }
+
+}
