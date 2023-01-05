@@ -1,30 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import {Route,Routes,BrowserRouter} from 'react-router-dom'
 import "./main.css";
-import {useGetAllQuestionsQuery} from "./store/api/questions";
 import {Provider} from "react-redux";
 import {store} from "./store/store";
-import QuizPage from "./Pages/QuizPage/QuizPage";
 import Navigation from "./components/Navigation/Navigation";
-
-
-
+import QuizHomePage from "./Pages/QuizHomePage/QuizHomePage";
+import QuizSolvePage from "./Pages/QuizSolvePage/QuizSolvePage";
 
 function App() {
 
+    return (<>
+            <Navigation/>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <div className="container">
+                        <Routes>
+                            <Route path={'/'} element={<QuizHomePage/>}/>
+                            <Route path={'/:category'} element={<QuizSolvePage/>}/>
+                            <Route path={'*'} element={<h1>Something went wrong</h1>}/>
+                        </Routes>
+                    </div>
+                </BrowserRouter>
+            </Provider>
+        </>
 
-  return (<>
-      <Navigation/>
-      <Provider store={store}>
-          <div className="container">
-        <QuizPage/>
-          </div>
-      </Provider>
-      </>
-
-  );
+    );
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<App/>, rootElement);

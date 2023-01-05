@@ -12,9 +12,10 @@ export const quizApi = createApi({
     }),
     endpoints: (builder) => ({
         getAllQuestions: builder.query<any,any>({
-            query: () => ({
+            query: (category) => ({
                 url: `/questions`,
                 params: {
+                    'category':category,
                 }
             }),
         }),

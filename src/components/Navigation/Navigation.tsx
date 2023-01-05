@@ -4,7 +4,7 @@ const Navigation = ()=>{
     return (<header className={c.Header}>
         <nav className={c.Header__nav}>
             <ul className={c.Header__ul}>
-                <li><a href="#">Home Page</a></li>
+                <li><a href="/">Home Page</a></li>
                 <li><a href="#">Link 2</a></li>
             </ul>
         </nav>
