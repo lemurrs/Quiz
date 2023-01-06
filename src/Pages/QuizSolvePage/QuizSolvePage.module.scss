@@ -1,4 +1,23 @@
 .QuizSolvePage{
   font-size: 2rem;
   margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  &__count{
+    text-align: center;
+    font-weight: bold;
+  }
+  &__question{
+    text-align: center;
+    font-weight: bold;
+  }
+  &__form{
+    margin: 1rem;
+  }
+  &__buttonNext{
+    align-self: end;
+  }
+  &__buttonPrev{
+    align-self: start;
+  }
 }

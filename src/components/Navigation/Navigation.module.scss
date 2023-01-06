@@ -1,15 +1,16 @@
 .Header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
   &__nav{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
     color: #fff;
     height: 6rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   &__ul{

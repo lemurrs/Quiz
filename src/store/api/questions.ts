@@ -1,4 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
+import {IQuiz} from "../../interfaces";
 
 const BASE_URL = 'https://quizapi.io/api/v1'
 
@@ -11,8 +12,8 @@ export const quizApi = createApi({
         }
     }),
     endpoints: (builder) => ({
-        getAllQuestions: builder.query<any,any>({
-            query: (category) => ({
+        getCategoryQuestions: builder.query<IQuiz[],string>({
+            query: (category='') => ({
                 url: `/questions`,
                 params: {
                     'category':category,
@@ -21,4 +22,4 @@ export const quizApi = createApi({
         }),
     })
 })
-export const {useGetAllQuestionsQuery} = quizApi
+export const {useGetCategoryQuestionsQuery} = quizApi
