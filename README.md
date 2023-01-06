@@ -1,27 +1,17 @@
-# Webpack React Typescript
+<h1>Проект <a href='https://lemurrs.github.io/Quiz/'>QuizWeb</a></h1>
+<h2>Описание проекта</h2>
+<p>QuizWeb сайт, где есть на выбор несколько тем для викторины, решив одну из них выведется ваш результат. </p>
+<h2>Технологии</h2>
+<ul>
+<li>React</li>
+<li>Redux Toolkit</li>
+<li>RTK Query</li>
+<li>TypeScript</li>
+<li>JavaScript</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>SCSS</li>
+<li>Nested BEM</li>
+<li>Webpack</li>
+</ul>
 
-This project is to be used to get started with react typescrpt without CRA to allow more flexibilty by modifying webpack config
-
-## Geting started
-
-```
-yarn <--- Install dependencies
-yarn start <--- Run Development server
-yarn build <--- Build Prodiction code
-yarn test <--- Test Project
-```
-
-## Used Plugins
-
-```
-babel (react, typescript)
-webpack-bundle-analyzer <--- analyzing js bundles
-fork-ts-checker-webpack-plugin <--- typechecking
-css (style-loader, css-loader, sass-loader) <--- CSS
-html (html-webpack-plugin)
-testing (jest, ts-jest, react-testing-library)
-hot reloading (react-refresh)
-
-React: ^17.0.1
-Webpack: ^5.21.2
-```
