@@ -1,8 +1,40 @@
+.button{
+  font-size: 1.8rem;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover{
+    background-color: #43a047;
+  }
+  &:active{
+    background-color: #388e3c;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+}
 .QuizSolvePage{
-  font-size: 2rem;
-  margin-top: 6rem;
   display: flex;
-  flex-direction: column;
+  font-size: 2rem;
+  min-height: calc(100vh - 14rem);
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px 3px rgba(0,0,0,0.2) ;
+  margin: 10rem 0 0 0;
+  background: white;
+
+  &>form{
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+    width: 100%;
+    &>input{
+    }
+  }
   &__count{
     text-align: center;
     font-weight: bold;
@@ -13,11 +45,14 @@
   }
   &__form{
     margin: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) ;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 3rem;
+    transition: all 0.1s;
   }
-  &__buttonNext{
-    align-self: end;
-  }
-  &__buttonPrev{
-    align-self: start;
+  &__button{
+    margin: 1rem;
+   align-self: start;
   }
 }

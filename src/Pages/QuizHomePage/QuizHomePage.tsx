@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import c from './QuizHomePage.module.scss'
 import QuizCategoryCard from "../../components/QuizCategoryCard/QuizCategoryCard";
 

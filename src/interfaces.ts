@@ -5,7 +5,7 @@ export interface Answers {
     answer_d?: any;
     answer_e?: any;
     answer_f?: any;
-    [key:string]:any
+    [key:string]:any //index signature
 }
 
 export interface CorrectAnswers {

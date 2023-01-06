@@ -1,8 +1,9 @@
 import React, {ChangeEvent, useState} from "react";
-import {useParams} from 'react-router-dom'
+import {useParams,useNavigate} from 'react-router-dom'
 import c from './QuizSolvePage.module.scss'
 import {useGetCategoryQuestionsQuery} from "../../store/api/questions";
 import {Answers, IQuiz} from "../../interfaces";
+import RenderResults from "./RenderResults/RenderResults";
 
 const QuizSolvePage: React.FC = () => {
 
@@ -28,10 +29,13 @@ const QuizSolvePage: React.FC = () => {
 
     //Question counter
     const [currentQuestion, setCurrentQuestion] = useState(0)
+
     //All Answers of the user
     const [myAnswers, setMyAnswers] = useState<string[]>([]);
+
     //Current selected input radio
     const [currentAnswer, setCurrentAnswer] = useState<string>('')
+
     //Controllable radio inputs
     function select(e: ChangeEvent<HTMLInputElement>) {
         setCurrentAnswer(e.target.value)
@@ -44,41 +48,27 @@ const QuizSolvePage: React.FC = () => {
     let answers: Answers
     if (currentQuestion + 1 <= filteredData.length) answers = filteredData[currentQuestion].answers
 
-    //Quiz results
-    const RenderResults = () => {
-        let numCorrect = 0;
-        myAnswers.forEach((answer: string, index: number) => {
-            if (answer === filteredData[index].correct_answer) {
-                numCorrect++;
-            }
-        });
-
-        return (
-            <div style={{marginTop: '6rem'}}>
-                <p>You got {numCorrect} out of {filteredData.length} questions correct.</p>
-            </div>
-        );
-    };
-
-
-    return (<>
+    return (<div className={c.QuizSolvePage}>
         {currentQuestion < filteredData.length ?
-            <form className={c.QuizSolvePage} onSubmit={e => handleSubmit(e, currentAnswer)}>
+            <form onSubmit={e => handleSubmit(e, currentAnswer)}>
                 <p className={c.QuizSolvePage__count}>{currentQuestion + 1}/{filteredData.length}</p>
                 <p className={c.QuizSolvePage__question}>{filteredData[currentQuestion].question}</p>
                 {Object.getOwnPropertyNames(answers!).map((key: string, index) =>
-                    <label className={c.QuizSolvePage__form} key={index}>
-                        {answers[key] &&
+                    <>
+                { answers[key] &&  <label className={c.QuizSolvePage__form} style={{background: currentAnswer===key? 'yellow' : ''}} key={index}>
+
                             <input key={index} name={'QuizForm'} type={'radio'} checked={currentAnswer === key}
                                    value={key} onChange={(e) => {
                                 select(e)
-                            }}/>}
+                            }}/>
                         {answers[key]}
-                    </label>
+                    </label>}
+                    </>
                 )}
-                <button disabled={!currentAnswer} type={'submit'} className={c.QuizSolvePage__buttonPrev}>Submit</button>
-            </form> : <RenderResults/>}
-    </>)
+                <button disabled={!currentAnswer} type={'submit'} className={`${c.QuizSolvePage__button} ${c.button}`}>Submit</button>
+            </form> : <RenderResults myAnswers={myAnswers} filteredData={filteredData}/>}
+
+    </div>)
 
 }
 export default React.memo(QuizSolvePage)
