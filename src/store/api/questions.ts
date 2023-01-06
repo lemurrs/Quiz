@@ -12,11 +12,11 @@ export const quizApi = createApi({
         }
     }),
     endpoints: (builder) => ({
-        getCategoryQuestions: builder.query<IQuiz[],string>({
-            query: (category='') => ({
+        getCategoryQuestions: builder.query<IQuiz[], string>({
+            query: (category = '') => ({
                 url: `/questions`,
                 params: {
-                    'category':category,
+                    'category': category,
                 }
             }),
         }),
