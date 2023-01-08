@@ -1,12 +1,14 @@
 {
   "name": "quizy",
+  "homepage": "https://lemurrs.github.io/Quiz",
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "scripts": {
+    "deploy": "gh-pages -d dist",
     "lint": "tsc --watch",
     "start": "webpack serve --mode development",
-    "clean": "rm -rf dist",
+    "clean": "del -r dist",
     "bootstrap": "mkdir dist",
     "build": "yarn clean && yarn bootstrap && webpack --progress --mode production --profile --json > dist/stats.json",
     "test": "jest-",
@@ -28,6 +30,7 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^6.3.1",
+    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.3.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
@@ -46,6 +49,7 @@
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-redux": "^8.0.5"
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.6.1"
   }
 }

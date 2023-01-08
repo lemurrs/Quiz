@@ -6,6 +6,7 @@ const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin"
 module.exports = {
   entry: "./src/index",
   target: "web",
+
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "js/[name].[contenthash].js",

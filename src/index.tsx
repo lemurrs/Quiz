@@ -18,7 +18,6 @@ function App() {
                         <Routes>
                             <Route path={'/'} element={<QuizHomePage/>}/>
                             <Route path={'/:category'} element={<QuizSolvePage/>}/>
-                            <Route path={'*'} element={<h1>Something went wrong</h1>}/>
                         </Routes>
                     </div>
                 </BrowserRouter>
